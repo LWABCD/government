@@ -1,9 +1,15 @@
 package com.ybu.admin.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.ybu.entity.Announcement;
+import com.ybu.entity.AnnouncementExample;
+import com.ybu.entity.LogInfo;
+import com.ybu.entity.Result;
 import com.ybu.mapper.AnnouncementMapper;
 import com.ybu.admin.service.AnnouncementService;
 import com.ybu.utils.FileUtils;
+import com.ybu.vo.AnnouncementVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -20,8 +26,13 @@ public class AnnouncementServicelmpl implements AnnouncementService{
     private AnnouncementMapper announcementMapper;
 
     @Override
-    public List<Announcement> announcements() {
-        return announcementMapper.selectAllAnnouncements();
+    public Result announcements(AnnouncementVo announcementVo) {
+        Page<Object> page= PageHelper.startPage(announcementVo.getPage(), announcementVo.getLimit());
+        List<Announcement> data = announcementMapper.queryAllAnnouncement(announcementVo);
+        Result result=new Result();
+        result.setCount(page.getTotal());
+        result.setData(data);
+        return result;
     }
 
     @Override
@@ -58,5 +69,12 @@ public class AnnouncementServicelmpl implements AnnouncementService{
     @Override
     public Announcement selectAnnouncement(Integer aid) {
         return announcementMapper.selectByPrimaryKey(aid);
+    }
+
+    @Override
+    public void deleteBatchAnnouncement(Integer[] ids) {
+        for(Integer aid:ids){
+            announcementMapper.deleteByPrimaryKey(aid);
+        }
     }
 }

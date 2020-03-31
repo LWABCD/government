@@ -17,6 +17,17 @@ String path = request.getContextPath();
     <script language="JavaScript" src="${pageContext.request.contextPath}/resources/js/public.js" type="text/javascript"></script>
     <script language="JavaScript" type="text/javascript">
     </script>
+
+	  <style type="text/css">
+		  body,html{
+			  width: 100%;
+			  height: 100%;
+			  background-color: aquamarine;
+			  font-size: 0.9rem;
+			  background-image: url(${pageContext.request.contextPath}/resources/images/indexbackground.jpg);
+			  background-size: 100% 100%;
+		  }
+	  </style>
   </head>
   
 <body>
@@ -35,7 +46,7 @@ String path = request.getContextPath();
 				 <div class="SquarelyGreenContainer">
 					<div class="top">
 						<div class="bgbtop-center">
-							<span><a href="/government/index/toallAnnouncement">网站公告</a></span>
+							<span><a href="/government/index/toAllAnnouncement">网站公告</a></span>
 							<div class="WinRight"></div>
 						</div>
 					</div>
@@ -49,12 +60,12 @@ String path = request.getContextPath();
 				 <div class="SquarelyGreenContainer">
 					<div class="top">
 						<div class="bgbtop-center">
-							<span><a href="">政府部门网站</a></span>
+							<span><a href="/government/index/toAllGovwebsite">政府部门网站</a></span>
 							<div class="WinRight"></div>
 						</div>
 					</div>
 					<div class="Slot">
-					    <s:action name="lianjieQian5" executeResult="true"></s:action>
+						<jsp:include flush="true" page="/WEB-INF/jsp/proscenium/govwebsiteTop5.jsp"></jsp:include>
 					</div>
 				 </div>
 				 <!-- 公告-->
@@ -75,24 +86,24 @@ String path = request.getContextPath();
 		 <div id="content" class="Sub">
 				<div class="NewContainer770">
 					<div class="BoxHeader">
-						<div class="BoxHeader-center MarginTop10">新闻动态</div>
+						<div class="BoxHeader-center MarginTop10"><a href="/government/index/toAllNews">新闻动态</a></div>
 					</div>
-					<div class="Slot">
-						<s:action name="picNewsQian5" executeResult="true"></s:action>
+					<div class="Slot" align="center">
+						<jsp:include flush="true" page="/WEB-INF/jsp/proscenium/newsTop5.jsp"></jsp:include>
                     </div>
 				</div>
-				<div class="NewContainer770">
-					<div class="BoxHeader">
-						<div class="BoxHeader-center MarginTop10">地区概况</div>
-					</div>
-					<div class="Slot">
-						<table width="100%" border="0">
-						    <tr>
-						       <td align="center"><s:property value="#request.diqugaikuang.content" escape="false"/></td>
-						    </tr>
-						</table>
-                    </div>
-				</div>
+<%--				<div class="NewContainer770">--%>
+<%--					<div class="BoxHeader">--%>
+<%--						<div class="BoxHeader-center MarginTop10">地区概况</div>--%>
+<%--					</div>--%>
+<%--					<div class="Slot">--%>
+<%--						<table width="100%" border="0">--%>
+<%--						    <tr>--%>
+<%--						       <td align="center"><s:property value="#request.diqugaikuang.content" escape="false"/></td>--%>
+<%--						    </tr>--%>
+<%--						</table>--%>
+<%--                    </div>--%>
+<%--				</div>--%>
 		 </div>
 </div>
 </div>

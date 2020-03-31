@@ -46,4 +46,9 @@ public class MenuServiceImpl implements MenuService {
 		this.menuMapper.deleteRoleMenuByMid(menuVo.getId());
 	}
 
+	@Override
+	public List<Menu> queryMenuByUId(MenuVo menuVo, Integer uid) {
+		return menuMapper.queryMenuByUid(menuVo.getAvailable(),uid);
+	}
+
 }

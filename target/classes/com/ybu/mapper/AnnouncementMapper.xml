@@ -245,4 +245,24 @@
       title = #{title,jdbcType=VARCHAR}
     where aid = #{aid,jdbcType=INTEGER}
   </update>
+
+  <!-- 查询 -->
+  <select id="queryAllAnnouncement"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from announcement
+    <where>
+      <if test="title!=null and title!=''">
+        and title like concat("%",#{title},"%")
+      </if>
+      <if test="startTime!=null">
+        and createtime >=#{startTime}
+      </if>
+      <if test="endTime!=null">
+        <!-- and logintime &lt; = #{endTime} -->
+        and createtime  <![CDATA[<=]]> #{endTime}
+      </if>
+    </where>
+    order by createtime desc
+  </select>
 </mapper>

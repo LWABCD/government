@@ -1,8 +1,11 @@
 package com.ybu.mapper;
 
+import com.ybu.entity.Role;
 import com.ybu.entity.User;
 import com.ybu.entity.UserExample;
 import java.util.List;
+
+import com.ybu.vo.UserVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -30,4 +33,10 @@ public interface UserMapper{
     int updateByPrimaryKey(User record);
 
     User login(User user);
+
+    List<Role> selectRoleByUid(Integer uid);
+
+    void insertUserRole(@Param("uid") Integer uid,@Param("rid") Integer rid);
+
+    List<User> queryAllUser(UserVo userVo);
 }

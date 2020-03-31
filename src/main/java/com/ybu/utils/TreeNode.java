@@ -10,12 +10,15 @@ public class TreeNode {
 	private Integer id;
 	@JsonProperty("parentId")
 	private Integer pid;
+	private Integer parentId;
 
 	private String title;
 	private String icon;
 	private String href;
 	private Boolean spread;
 	private String target;
+	private Boolean last;
+
 	private List<TreeNode> children = new ArrayList<>();
 
 	// 复选树的必要属性
@@ -52,13 +55,48 @@ public class TreeNode {
 	 * @param spread
 	 * @param checkArr
 	 */
-	public TreeNode(Integer id, Integer pid, String title, Boolean spread, String checkArr) {
+//	public TreeNode(Integer id, Integer pid, String title, Boolean spread, String checkArr) {
+//		super();
+//		this.id = id;
+//		this.pid = pid;
+//		this.title = title;
+//		this.spread = spread;
+//		this.checkArr = checkArr;
+//	}
+
+	/**
+	 * dtree的复选树使用
+	 *
+	 * @param id
+	 * @param pid
+	 * @param title
+	 * @param spread
+	 * @param checkArr
+	 */
+	public TreeNode(Integer id, Integer pid, String title,Boolean last,String checkArr,Boolean spread) {
 		super();
 		this.id = id;
-		this.pid = pid;
+		this.parentId = pid;
 		this.title = title;
-		this.spread = spread;
-		this.checkArr = checkArr;
+		this.last=last;
+		this.checkArr=checkArr;
+		this.spread=spread;
+	}
+
+	public Integer getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(Integer parentId) {
+		this.parentId = parentId;
+	}
+
+	public Boolean getLast() {
+		return last;
+	}
+
+	public void setLast(Boolean last) {
+		this.last = last;
 	}
 
 	public Integer getId() {

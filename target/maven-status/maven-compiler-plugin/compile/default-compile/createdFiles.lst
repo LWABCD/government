@@ -22,7 +22,6 @@ com\ybu\mapper\UserMapper.class
 com\ybu\App.class
 com\ybu\mapper\GovernmentwebsiteMapper.class
 com\ybu\entity\LeaderemailExample.class
-com\ybu\utils\AppFileUtils.class
 com\ybu\utils\WebUtils.class
 com\ybu\entity\AnnouncementExample$Criterion.class
 com\ybu\entity\OpengovernmentExample.class

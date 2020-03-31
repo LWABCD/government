@@ -19,6 +19,18 @@ String path = request.getContextPath();
     <script language="JavaScript" src="<%=path %>/js/public.js" type="text/javascript"></script>
     <script language="javascript">
     </script>
+
+	  <style type="text/css">
+		  body,html{
+			  width: 100%;
+			  height: 100%;
+			  background-color: aquamarine;
+			  font-size: 0.9rem;
+			  background-image: url(${pageContext.request.contextPath}/resources/images/indexbackground.jpg);
+			  background-size: 100% 100%;
+		  }
+	  </style>
+
   </head>
   
   <body>

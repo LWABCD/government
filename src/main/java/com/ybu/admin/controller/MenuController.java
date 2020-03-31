@@ -30,9 +30,8 @@ public class MenuController {
 	public List<TreeNode> loadIndexLeftMenuJson(MenuVo menuVo){
 		//得到当前登陆的用户对象
 		User user=(User) WebUtils.getHttpSession().getAttribute("user");
-		List<Menu> list=null;
 		menuVo.setAvailable(SysConstast.AVAILABLE_TRUE);//只查询可用的
-		list=this.menuService.queryAllMenuForList(menuVo);
+		List<Menu> list=menuService.queryMenuByUId(menuVo, user.getUid());
 		List<TreeNode> nodes= new ArrayList<>();
 		//把list里面的数据放到nodes
 		for (Menu menu : list) {
@@ -41,7 +40,7 @@ public class MenuController {
 			String title=menu.getTitle();
 			String icon=menu.getIcon();
 			String href=menu.getHref();
-			Boolean spread=menu.getSpread()== SysConstast.SPREAD_TRUE?true:false;
+			Boolean spread=menu.getSpread()==SysConstast.SPREAD_TRUE?true:false;
 			String target=menu.getTarget();
 			nodes.add(new TreeNode(id, pid, title, icon, href, spread, target));
 		}

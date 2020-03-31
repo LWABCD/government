@@ -23,7 +23,7 @@ public interface MenuMapper {
     /**
      * 查询所有菜单
      */
-    List<Menu> queryAllMenu(MenuVo menuvo);
+    List<Menu> queryAllMenu(Menu menu);
 
     /**
      * 根据pid查询菜单数量 

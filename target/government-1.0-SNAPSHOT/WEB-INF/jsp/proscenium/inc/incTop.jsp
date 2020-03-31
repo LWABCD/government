@@ -37,9 +37,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="secMenu">
 						<span id="secMenu0" class="secMenu-center">
 						     <a href="<%=path%>/index/toindex">首页</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-						     <a href="<%=path %>/lingdaoxinxiangAll.action">领导信箱</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+						     <a href="<%=path %>/pLeaderEmail/toLeaderEmail">领导信箱</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 						     <a href="<%=path %>/pFile/toFileDownload">表格下载</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-						     <a href="<%=path %>/zhengwuAll.action">政务公开</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+						     <a href="<%=path %>/pOpenGovernment/toOpenGovernment">政务公开</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 						     <a href="<%=path %>/bianmindianhuaAll.action">便民电话</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 							 <a href="#" onclick="liuyanAll()">留言板</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 							 <a target="_blank" href="<%=path %>/login/toLogin">进入后台</a>

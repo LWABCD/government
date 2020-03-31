@@ -4,6 +4,7 @@ import com.ybu.entity.Announcement;
 import com.ybu.entity.Result;
 import com.ybu.admin.service.AnnouncementService;
 import com.ybu.utils.FileUtils;
+import com.ybu.vo.AnnouncementVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,13 +33,8 @@ public class AnnouncementController{
 
     @RequestMapping("/announcements")
     @ResponseBody
-    public Result announcements(){
-        List<Announcement> announcements=announcementService.announcements();
-        Result result=new Result();
-        result.setCode(0);
-        result.setMsg("");
-        result.setData(announcements);
-        return result;
+    public Result announcements(AnnouncementVo announcementVo){
+        return announcementService.announcements(announcementVo);
     }
 
     @RequestMapping("/saveannouncement")
@@ -67,5 +63,20 @@ public class AnnouncementController{
         Result result=new Result();
         result.setCode(code);
         return result;
+    }
+
+    @RequestMapping("/deleteBatchAnnouncement")
+    @ResponseBody
+    public Result deleteAnnouncement(AnnouncementVo announcementVo){
+        Result result=new Result();
+        try {
+            announcementService.deleteBatchAnnouncement(announcementVo.getIds());
+            result.setMsg("批量删除成功");
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.setMsg("批量删除失败");
+            return result;
+        }
     }
 }

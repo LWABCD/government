@@ -3,6 +3,8 @@ package com.ybu.mapper;
 import com.ybu.entity.Announcement;
 import com.ybu.entity.AnnouncementExample;
 import java.util.List;
+
+import com.ybu.vo.AnnouncementVo;
 import org.apache.ibatis.annotations.Param;
 
 public interface AnnouncementMapper {
@@ -29,4 +31,6 @@ public interface AnnouncementMapper {
     int updateByPrimaryKey(Announcement record);
 
     List<Announcement> selectAllAnnouncements();
+
+    List<Announcement> queryAllAnnouncement(AnnouncementVo announcementVo);
 }

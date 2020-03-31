@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-      <table width="100%" id="table">
+      <table width="100%" id="announcementTable">
 <%--		<tr>--%>
 <%--			<td align="left"><a href="/government/index/announcementDetail?aid="></a></td>--%>
 <%--			<td>abc</td>--%>
@@ -35,10 +35,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <script>
 	$(function () {
-		getData();
+        getAnnouncements();
 	});
 
-	function getData() {
+	function getAnnouncements() {
 		$.ajax({
 			url:'/government/index/announcements',
 			type:'post',
@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			success:function(data){
 				for(var i=0;i<5;i++){
 					var createtime=new Date(data.data[i].createtime).toLocaleDateString();
-					$("#table").append("<tr>\n" +
+					$("#announcementTable").append("<tr>\n" +
 							"\t\t\t<td align=\"left\"><a href=\"/government/index/announcementDetail?aid="+data.data[i].aid+"\">"+data.data[i].title+"</a></td>\n" +
 							"\t\t\t<td>"+createtime+"</td>\n" +
 							"\t\t</tr>");

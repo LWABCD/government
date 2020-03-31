@@ -24,47 +24,19 @@
 	<form class="layui-form" method="post" id="searchFrm">
 		<div class="layui-form-item">
 		    <div class="layui-inline">
-		      <label class="layui-form-label">用户姓名:</label>
+		      <label class="layui-form-label">用户名:</label>
 		      <div class="layui-input-inline">
-		        <input type="text" name="realname"  autocomplete="off" class="layui-input">
+		        <input type="text" name="username"  autocomplete="off" class="layui-input">
 		      </div>
 		    </div>
 		    <div class="layui-inline">
-		      <label class="layui-form-label">登陆名称:</label>
-		      <div class="layui-input-inline">
-		        <input type="text" name="loginname"  autocomplete="off" class="layui-input">
-		      </div>
-		    </div>
-		    <div class="layui-inline">
-		      <label class="layui-form-label">用户地址:</label>
-		      <div class="layui-input-inline">
-		        <input type="text" name="address"  autocomplete="off" class="layui-input">
-		      </div>
-		    </div>
-		 </div>
-		 
-		 <div class="layui-form-item">
-		    <div class="layui-inline">
-		      <label class="layui-form-label">用户电话:</label>
+		      <label class="layui-form-label">手机号:</label>
 		      <div class="layui-input-inline">
 		        <input type="text" name="phone"  autocomplete="off" class="layui-input">
 		      </div>
 		    </div>
-		    <div class="layui-inline">
-		      <label class="layui-form-label">身份证号:</label>
-		      <div class="layui-input-inline">
-		        <input type="text" name="identity"  autocomplete="off" class="layui-input">
-		      </div>
-		    </div>
-		     <div class="layui-inline">
-		      <label class="layui-form-label">性别:</label>
-		      <div class="layui-input-inline">
-		       		 <input type="radio" name="sex" value="1" title="男">
-					 <input type="radio" name="sex" value="0" title="女">
-		      </div>
-		    </div>
 		 </div>
-		 <div  class="layui-form-item" style="text-align: center;">
+		 <div  class="layui-form-item">
 		  <div class="layui-input-block" >
 		      <button type="button" class="layui-btn layui-btn-normal  layui-icon layui-icon-search" id="doSearch">查询</button>
 		      <button type="reset" class="layui-btn layui-btn-warm  layui-icon layui-icon-refresh">重置</button>
@@ -93,66 +65,29 @@
 		<form class="layui-form"  lay-filter="dataFrm" id="dataFrm">
 			<div class="layui-form-item">
 				<div class="layui-inline">
-					<label class="layui-form-label">用户姓名:</label>
+					<label class="layui-form-label">登录名称:</label>
 					<div class="layui-input-inline">
-						<input type="hidden" name="userid">
-						<input type="text" name="realname" lay-verify="required"   placeholder="请输入用户姓名" autocomplete="off"
-							class="layui-input">
-					</div>
-				</div>
-				<div class="layui-inline">
-					<label class="layui-form-label">登陆名称:</label>
-					<div class="layui-input-inline">
-						<input type="text" name="loginname" lay-verify="required"  placeholder="请输入用户登陆名称" autocomplete="off"
+						<input type="hidden" name="uid">
+						<input type="text" name="username" lay-verify="required"   placeholder="请输入用户名" autocomplete="off"
 							class="layui-input">
 					</div>
 				</div>
 			</div>
 			<div class="layui-form-item">
 				<div class="layui-inline">
-					<label class="layui-form-label">身份证号:</label>
+					<label class="layui-form-label">密码:</label>
 					<div class="layui-input-inline">
-						<input type="text" name="identity"  placeholder="请输入用户身份证号" autocomplete="off"
-							class="layui-input">
-					</div>
-				</div>
-				<div class="layui-inline">
-					<label class="layui-form-label">用户地址:</label>
-					<div class="layui-input-inline">
-						<input type="text" name="address"  placeholder="请输入用户地址" autocomplete="off"
-							class="layui-input">
+						<input type="text" name="password" lay-verify="required"  placeholder="请输入密码" autocomplete="off"
+							   class="layui-input">
 					</div>
 				</div>
 			</div>
 			<div class="layui-form-item">
 				<div class="layui-inline">
-					<label class="layui-form-label">用户电话:</label>
+					<label class="layui-form-label">手机号:</label>
 					<div class="layui-input-inline">
-						<input type="text" name="phone" lay-verify="required|phone"  placeholder="请输入用户电话" autocomplete="off"
+						<input type="text" name="phone"  placeholder="请输入手机号" autocomplete="off"
 							class="layui-input">
-					</div>
-				</div>
-				<div class="layui-inline">
-					<label class="layui-form-label">用户职位:</label>
-					<div class="layui-input-inline">
-						<input type="text" name="position"   placeholder="请输入用户职位" autocomplete="off"
-							class="layui-input">
-					</div>
-				</div>
-			</div>
-			<div class="layui-form-item">
-				<div class="layui-inline">
-					<label class="layui-form-label">用户性别:</label>
-					<div class="layui-input-inline">
-						 <input type="radio" name="sex" value="1" checked="checked" title="男">
-						 <input type="radio" name="sex" value="0" title="女">
-					</div>
-				</div>
-				<div class="layui-inline">
-					<label class="layui-form-label">是否可用:</label>
-					<div class="layui-input-inline">
-						 <input type="radio" name="available" value="1" checked="checked" title="可用">
-						 <input type="radio" name="available" value="0" title="不可用">
 					</div>
 				</div>
 			</div>
@@ -187,7 +122,7 @@
 			//渲染数据表格
 			 tableIns=table.render({
 				 elem: '#userTable'   //渲染的目标对象
-			    ,url:'${ctx}/user/loadAllUser.action' //数据接口
+			    ,url:'${ctx}/user/loadAllUser' //数据接口
 			    ,title: '用户数据表'//数据导出来的标题
 			    ,toolbar:"#userToolBar"   //表格的工具条
 			    ,height:'full-200'
@@ -195,29 +130,20 @@
 			    ,page: true  //是否启用分页
 			    ,cols: [[   //列表数据
 			     {type: 'checkbox', fixed: 'left'}
-			      ,{field:'userid', title:'ID',align:'center',width:'80'}
-			      ,{field:'realname', title:'用户姓名',align:'center',width:'100'}
-			      ,{field:'loginname', title:'登陆名',align:'center',width:'100'}
-			      ,{field:'identity', title:'身份证号',align:'center',width:'150'}
-			      ,{field:'phone', title:'用户电话',align:'center',width:'150'}
-			      ,{field:'address', title:'用户地址',align:'center',width:'160'}
-			      ,{field:'sex', title:'性别',align:'center',width:'80',templet:function(d){
-			    	  return d.sex=='1'?'<font color=blue>男</font>':'<font color=red>女</font>';
-			      }}
-			      ,{field:'pwd', title:'密码',align:'center',width:'80',templet:function(d){
+			      ,{field:'uid', title:'ID',align:'center',width:'180'}
+			      ,{field:'username', title:'用户名',align:'center',width:'180'}
+			      ,{field:'phone', title:'手机号',align:'center',width:'180'}
+			      ,{field:'pwd', title:'密码',align:'center',width:'180',templet:function(d){
 			    	  return "******";
 			      }}
-			      ,{field:'available', title:'是否可用',width:'100',align:'center',templet:function(d){
-			    	  return d.available=='1'?'<font color=blue>可用</font>':'<font color=red>不可用</font>';
-			      }}
-			      ,{fixed: 'right', title:'操作', toolbar: '#userBar', width:260,align:'center'}
+			      ,{fixed: 'right', title:'操作', toolbar: '#userBar', width:360,align:'center'}
 			    ]]
 			})
 			//模糊查询
 			$("#doSearch").click(function(){
 				var params=$("#searchFrm").serialize();
 				tableIns.reload({
-					url:"${ctx}/user/loadAllUser.action?"+params
+					url:"${ctx}/user/loadAllUser?"+params
 				})
 			});
 			
@@ -237,9 +163,9 @@
 			   var data = obj.data; //获得当前行数据
 			   var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
 			  if(layEvent === 'del'){ //删除
-				  layer.confirm('真的删除【'+data.realname+'】这个用户吗', function(index){
+				  layer.confirm('真的删除【'+data.username+'】这个用户吗', function(index){
 				       //向服务端发送删除指令
-				       $.post("${ctx}/user/deleteUser.action",{userid:data.userid},function(res){
+				       $.post("${ctx}/user/deleteUser",{uid:data.uid},function(res){
 				    	   layer.msg(res.msg);
 				    	    //刷新数据 表格
 							tableIns.reload();
@@ -248,9 +174,9 @@
 			   } else if(layEvent === 'edit'){ //编辑
 			     openUpdateUser(data);
 			   }else if(layEvent==='resetUserPwd'){
-				   layer.confirm('真的重置【'+data.realname+'】这个用户的密码吗', function(index){
+				   layer.confirm('真的重置【'+data.username+'】这个用户的密码吗', function(index){
 				       //向服务端发送删除指令
-				       $.post("${ctx}/user/resetUserPwd.action",{userid:data.userid},function(res){
+				       $.post("${ctx}/user/resetUserPwd.action",{uid:data.uid},function(res){
 				    	   layer.msg(res.msg);
 				       })
 				     }); 
@@ -271,7 +197,7 @@
 					success:function(index){
 						//清空表单数据       
 						$("#dataFrm")[0].reset();
-						url="${ctx}/user/addUser.action";
+						url="${ctx}/user/addUser";
 					}
 				});
 			}
@@ -284,7 +210,7 @@
 					area:['800px','400px'],
 					success:function(index){
 						form.val("dataFrm",data);
-						url="${ctx}/user/updateUser.action";
+						url="${ctx}/user/updateUser";
 					}
 				});
 			}
@@ -309,14 +235,14 @@
 			    var params="";
 			    $.each(data,function(i,item){
 			    	if(i==0){
-			    		params+="ids="+item.userid;
+			    		params+="ids="+item.uid;
 			    	}else{
-			    		params+="&ids="+item.userid;
+			    		params+="&ids="+item.uid;
 			    	}
 			    });
 			    layer.confirm('真的删除选中的这些用户吗', function(index){
 				       //向服务端发送删除指令
-				       $.post("${ctx}/user/deleteBatchUser.action",params,function(res){
+				       $.post("${ctx}/user/deleteBatchUser",params,function(res){
 				    	   layer.msg(res.msg);
 				    	    //刷新数据 表格
 							tableIns.reload();
@@ -327,30 +253,46 @@
 			function openselectUserRole(data){
 				mainIndex=layer.open({
 					type:1,
-					title:'分配【'+data.realname+'】的角色',
+					title:'分配【'+data.username+'】的角色',
 					content:$("#selectUserRole"),
 					area:['800px','400px'],
 					btnAlign:'c',
 					height:'full',
-					btn:['<div class="layui-icon layui-icon-release">确认分配</div>','<div class="layui-icon layui-icon-close">取消分配</div>'],
+					btn:['<div class="layui-icon layui-icon-release" id="provide">确认分配</div>','<div class="layui-icon layui-icon-close" id="notprovide">取消分配</div>'],
 					yes:function(index, layero){
 						//得到选中的数据行
 						var checkStatus = table.checkStatus('roleTable');
 						var roleData = checkStatus.data;
-						var params="userid="+data.userid;
-					    $.each(roleData,function(i,item){
-					    	params+="&ids="+item.roleid;
-						});
-					    //保存
-					    $.post("${ctx}/user/saveUserRole.action",params,function(obj){
-					    	layer.msg(obj.msg);
-					    })
+						var params="uid="+data.uid;
+					    //如果该用户是超级管理员，则不可以更改他的角色，其它用户无法分配超级管理员这个角色
+						if (data.uid!=1){
+							var flag=true;
+					    	$.each(roleData,function(i,item){
+								//如果其它用户点了超级管理员这个角色，则进行提示
+					    		if (item.roleid==1) {
+									flag=false;
+									return;
+								}
+								params+="&ids="+item.roleid;
+							});
+							if (flag){
+								//保存
+								$.post("${ctx}/user/saveUserRole",params,function(obj){
+									layer.msg(obj.msg);
+								})
+							}else{
+								layer.msg("该用户无法拥有超级管理员这个角色");
+							}
+						//超级管理员拥有了所有的菜单权限，没有不要分配其它的角色了
+						}else{
+					    	layer.msg("您是超级管理员，拥有所有的菜单权限");
+						}
 					},
 					success:function(index){
 						//渲染数据表格
 						 var roleTableIns=table.render({
 							 elem: '#roleTable'   //渲染的目标对象
-						    ,url:'${ctx}/user/initUserRole.action?userid='+data.userid //数据接口
+						    ,url:'${ctx}/user/initUserRole?uid='+data.uid //数据接口
 						    ,title: '角色列表'//数据导出来的标题
 						    ,cellMinWidth:100 //设置列的最小默认宽度
 						    ,cols: [[   //列表数据

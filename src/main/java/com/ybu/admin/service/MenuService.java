@@ -38,4 +38,6 @@ public interface MenuService {
 	 * @param menuVo
 	 */
 	public void deleteMenu(MenuVo menuVo);
+
+    List<Menu> queryMenuByUId(MenuVo menuVo, Integer uid);
 }

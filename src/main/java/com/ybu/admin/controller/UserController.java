@@ -1,6 +1,7 @@
 package com.ybu.admin.controller;
 
 import com.ybu.entity.Result;
+import com.ybu.entity.Role;
 import com.ybu.entity.User;
 import com.ybu.admin.service.UserService;
 import com.ybu.utils.ResultObj;
@@ -12,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import sun.util.resources.cldr.st.LocaleNames_st;
 
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -41,6 +44,11 @@ public class UserController {
 	@RequestMapping("/tochangepwd")
 	public String toChangepwd(){
 		return "admin/changepwd";
+	}
+
+	@RequestMapping("/toUserManager")
+	public String toUserManager(){
+		return "admin/userManager";
 	}
 
 	@RequestMapping("/logout")
@@ -73,7 +81,7 @@ public class UserController {
 
 	@RequestMapping("/updateuser")
 	public String updateUser(User user,HttpSession session){
-		User u = (User) session.getAttribute("user");
+		UserVo u = (UserVo) session.getAttribute("user");
 		u.setPhone(user.getPhone());
 		u.setPhoto(user.getPhoto());
 		session.setAttribute("user", u);
@@ -97,27 +105,138 @@ public class UserController {
 
 	@RequestMapping("/changepwd")
 	public String changePwd(String newpwd,HttpSession session){
-		User user= (User) session.getAttribute("user");
+		UserVo userVo= (UserVo) session.getAttribute("user");
 		Md5Hash md5Hash=new Md5Hash(newpwd);
-		user.setPassword(md5Hash.toString());
-		int code=userService.updateUser(user);
+		userVo.setPassword(md5Hash.toString());
+		int code=userService.updateUser(userVo);
 		if(code==1){
-			session.setAttribute("user", user);
+			session.setAttribute("user", userVo);
 		}
 		return "redirect:/user/tochangepwd";
 	}
 
+	@RequestMapping("/loadAllUser")
+	@ResponseBody
+	public Result loadAllUser(UserVo userVo) {
+		List<User> users=userService.users(userVo);
+		Result result=new Result();
+		result.setData(users);
+		result.setCode(0);
+		return result;
+	}
+
+	@RequestMapping("/initUserRole")
+	@ResponseBody
+	public Result initUserRole(UserVo userVo) {
+		List<Map<String,Object>> userRoles=userService.initUserRole(userVo.getUid());
+		Result result=new Result();
+		result.setData(userRoles);
+		return result;
+	}
+
+	@RequestMapping("/saveUserRole")
+	@ResponseBody
+	public Result saveUserRole(UserVo userVo) {
+		Result result=new Result();
+		try {
+			userService.saveUserRole(userVo);
+			result.setMsg("保存成功");
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.setMsg("保存失败");
+			return result;
+		}
+	}
+
+	/**
+	 * 添加用户
+	 */
+	@RequestMapping("addUser")
+	@ResponseBody
+	public Result addUser(UserVo userVo) {
+		Result result=new Result();
+		try {
+			Md5Hash md5Hash=new Md5Hash(userVo.getPassword());
+			userVo.setPassword(md5Hash.toString());
+			userService.addUser(userVo);
+			result.setMsg("添加成功");
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.setMsg("添加失败");
+			return result;
+		}
+	}
+
+	/**
+	 * 修改用户
+	 */
+	@RequestMapping("updateUser")
+	@ResponseBody
+	public Result updateUser(UserVo userVo) {
+		Result result=new Result();
+		try {
+			userService.updateUser(userVo);
+			result.setMsg("修改成功");
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.setMsg("修改失败");
+			return result;
+		}
+	}
+
+	/**
+	 * 删除用户
+	 */
+	@RequestMapping("deleteUser")
+	@ResponseBody
+	public Result deleteUser(UserVo userVo) {
+		Result result=new Result();
+		try {
+			this.userService.deleteUser(userVo.getUid());
+			result.setMsg("删除成功");
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.setMsg("删除失败");
+			return result;
+		}
+	}
+
+	/**
+	 * 批量删除用户
+	 */
+	@RequestMapping("deleteBatchUser")
+	@ResponseBody
+	public Result deleteBatchUser(UserVo userVo) {
+		Result result=new Result();
+		try {
+			userService.deleteBatchUser(userVo.getIds());
+			result.setMsg("批量删除成功");
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.setMsg("批量删除失败");
+			return result;
+		}
+	}
 	/**
 	 * 重置用户密码
 	 */
 	@RequestMapping("resetUserPwd")
-	public ResultObj resetUserPwd(UserVo userVo) {
+	@ResponseBody
+	public Result resetUserPwd(UserVo userVo) {
+		Result result=new Result();
 		try {
-			this.userService.resetUserPwd(userVo.getUid());
-			return ResultObj.RESET_SUCCESS;
+			userService.resetUserPwd(userVo.getUid());
+			result.setMsg("重置成功");
+			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return ResultObj.RESET_ERROR;
+			result.setMsg("重置失败");
+			return result;
 		}
 	}
 

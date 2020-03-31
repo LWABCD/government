@@ -208,4 +208,28 @@
       username = #{username,jdbcType=VARCHAR}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
+
+  <select id="queryAllUser" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    <where>
+      <if test="username!=null and username !=''">
+        and username like concat("%",#{username},"%")
+      </if>
+      <if test="phone!=null and phone !=''">
+        and phone like concat("%",#{phone},"%")
+      </if>
+    </where>
+  </select>
+
+  <select id="selectRoleByUid" parameterType="java.lang.Integer" resultType="Role">
+    select t1.* from sys_role
+		t1 inner join sys_role_user t2 on(t1.roleid=t2.rid) where t2.uid=#{uid}
+  </select>
+
+  <!-- 保存用户和角色的关系 -->
+  <insert id="insertUserRole">
+		insert into sys_role_user(uid,rid) values(#{uid},#{rid})
+	</insert>
 </mapper>
