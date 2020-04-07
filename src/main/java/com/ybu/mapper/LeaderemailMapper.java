@@ -3,6 +3,8 @@ package com.ybu.mapper;
 import com.ybu.entity.Leaderemail;
 import com.ybu.entity.LeaderemailExample;
 import java.util.List;
+
+import com.ybu.vo.LeaderEmailVo;
 import org.apache.ibatis.annotations.Param;
 
 public interface LeaderemailMapper {
@@ -35,4 +37,6 @@ public interface LeaderemailMapper {
     int updateByPrimaryKey(Leaderemail record);
 
     int updateStatus(Integer leid);
+
+    List<Leaderemail> queryAllLeaderemail(LeaderEmailVo leaderEmailVo);
 }

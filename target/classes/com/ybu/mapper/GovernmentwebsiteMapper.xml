@@ -183,4 +183,16 @@
       url = #{url,jdbcType=VARCHAR}
     where gid = #{gid,jdbcType=INTEGER}
   </update>
+
+  <!-- 查询 -->
+  <select id="queryAllGovWebsite"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from governmentwebsite
+    <where>
+      <if test="name!=null and name!=''">
+        and name like concat("%",#{name},"%")
+      </if>
+    </where>
+  </select>
 </mapper>

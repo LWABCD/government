@@ -213,4 +213,27 @@
       url = #{url,jdbcType=VARCHAR}
     where fid = #{fid,jdbcType=INTEGER}
   </update>
+
+  <!-- 查询 -->
+  <select id="queryAllFile"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from file
+    <where>
+      <if test="name!=null and name!=''">
+        and name like concat("%",#{name},"%")
+      </if>
+      <if test="description!=null and description!=''">
+        and description like concat("%",#{description},"%")
+      </if>
+      <if test="startTime!=null">
+        and createtime >=#{startTime}
+      </if>
+      <if test="endTime!=null">
+        <!-- and logintime &lt; = #{endTime} -->
+        and createtime  <![CDATA[<=]]> #{endTime}
+      </if>
+    </where>
+    order by createtime desc
+  </select>
 </mapper>

@@ -4,6 +4,7 @@ import com.ybu.admin.service.LeaderemailService;
 import com.ybu.entity.Emailreply;
 import com.ybu.entity.Leaderemail;
 import com.ybu.entity.Result;
+import com.ybu.vo.LeaderEmailVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,13 +35,8 @@ public class LeaderemailController{
 
     @RequestMapping("/leaderemails")
     @ResponseBody
-    public Result leaderEmails(Integer status){
-        List<Leaderemail> leaderemails=leaderemailService.leaderEmails(status);
-        Result result=new Result();
-        result.setCode(0);
-        result.setMsg("");
-        result.setData(leaderemails);
-        return result;
+    public Result leaderEmails(LeaderEmailVo leaderEmailVo){
+        return leaderemailService.leaderEmails(leaderEmailVo);
     }
 
     @RequestMapping("/emaildetail")

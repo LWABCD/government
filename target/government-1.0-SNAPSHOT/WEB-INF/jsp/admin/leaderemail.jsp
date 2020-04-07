@@ -12,9 +12,12 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/layui/css/layui.css" />
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/layui/layui.js"></script>
 </head>
-<body>
-
-<form style="padding-top:10px">
+<body style="padding: 10px">
+<!-- 搜索条件开始 -->
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend>查询条件</legend>
+</fieldset>
+<form class="layui-form" method="post" id="searchFrm">
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">状态:</label>
@@ -25,6 +28,24 @@
                         <option value="1">已办结</option>
                     </select>
                 </div>
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">开始时间:</label>
+            <div class="layui-input-inline">
+                <input type="text" name="startTime" id="startTime" readonly="readonly"  autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">结束时间:</label>
+            <div class="layui-input-inline">
+                <input type="text" name="endTime" id="endTime" readonly="readonly"  autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <button type="button" class="layui-btn layui-btn-normal  layui-icon layui-icon-search" id="doSearch">查询</button>
+                <button type="reset" class="layui-btn layui-btn-warm  layui-icon layui-icon-refresh">重置</button>
             </div>
         </div>
     </div>
@@ -49,7 +70,15 @@
         var upload = layui.upload;
         var element = layui.element;
 
-        var exceldata;
+        //渲染时间
+        laydate.render({
+            elem:'#startTime',
+            type:'datetime'
+        });
+        laydate.render({
+            elem:'#endTime',
+            type:'datetime'
+        });
 
         //渲染数据表格
         var tableIns = table.render({
@@ -60,11 +89,31 @@
             , height: '500'
             , width: '80%'
             , cellMinWidth: 100 //设置列的最小默认宽度
+            , page: true
+            , limits: [5,10,20]
             , cols: [[   //列表数据
                 {field: 'title', title: '标题', align: 'center', width: '500'}
-                , {field: 'sendtime', title: '时间', align: 'center', width: '500',templet : "<div>{{layui.util.toDateString(d.departureDate, 'yyyy-MM-dd HH:mm:ss')}}</div>"}
+                , {field: 'sendtime', title: '时间', align: 'center', width: '500',
+                    templet: function (e) {
+                        if (e.sendtime == null) {
+                            return '';
+                        } else {
+                            return layui.util.toDateString(e.sendtime, "yyyy-MM-dd HH:mm:ss");
+                        }
+                    }
+                }
                 , {field: 'right', title: '操作', fixed: 'right', width: 177, align: 'center', toolbar: "#userBar"}
             ]]
+        });
+
+        //模糊查询
+        $("#doSearch").click(function(){
+            var params=$("#searchFrm").serialize();
+            tableIns.reload({
+                url:"${ctx}/leaderemail/leaderemails?"+params,
+                page:{curr:1}
+
+            })
         });
 
         form.on('select(status)', function (obj) {

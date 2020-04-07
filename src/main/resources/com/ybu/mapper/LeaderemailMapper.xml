@@ -342,4 +342,24 @@
       status = #{status,jdbcType=INTEGER}
     where leid = #{leid,jdbcType=INTEGER}
   </update>
+
+  <!-- 查询 -->
+  <select id="queryAllLeaderemail"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from leaderemail
+    <where>
+      <if test="status!=null">
+        and status = #{status}
+      </if>
+      <if test="startTime!=null">
+        and sendtime >=#{startTime}
+      </if>
+      <if test="endTime!=null">
+        <!-- and logintime &lt; = #{endTime} -->
+        and sendtime  <![CDATA[<=]]> #{endTime}
+      </if>
+    </where>
+    order by sendtime desc
+  </select>
 </mapper>

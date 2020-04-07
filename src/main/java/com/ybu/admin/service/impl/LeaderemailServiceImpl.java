@@ -1,12 +1,12 @@
 package com.ybu.admin.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.ybu.admin.service.LeaderemailService;
-import com.ybu.entity.Emailreply;
-import com.ybu.entity.EmailreplyExample;
-import com.ybu.entity.Leaderemail;
-import com.ybu.entity.LeaderemailExample;
+import com.ybu.entity.*;
 import com.ybu.mapper.EmailreplyMapper;
 import com.ybu.mapper.LeaderemailMapper;
+import com.ybu.vo.LeaderEmailVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,14 +22,17 @@ public class LeaderemailServiceImpl implements LeaderemailService{
     private EmailreplyMapper emailreplyMapper;
 
     @Override
-    public List<Leaderemail> leaderEmails(Integer status) {
-        if(status==null){
-            status=0;
+    public Result leaderEmails(LeaderEmailVo leaderEmailVo) {
+        Page<Object> page= PageHelper.startPage(leaderEmailVo.getPage(), leaderEmailVo.getLimit());
+        if(leaderEmailVo.getStatus()==null){
+            leaderEmailVo.setStatus(0);
         }
-        LeaderemailExample example=new LeaderemailExample();
-        LeaderemailExample.Criteria criteria=example.createCriteria();
-        criteria.andStatusEqualTo(status);
-        return leaderemailMapper.selectByExampleWithBLOBs(example);
+        List<Leaderemail> data = leaderemailMapper.queryAllLeaderemail(leaderEmailVo);
+        Result result=new Result();
+        result.setCount(page.getTotal());
+        result.setData(data);
+        return result;
+
     }
 
     @Override

@@ -87,12 +87,12 @@
 	        parent.addTab($(this));
 	    })
 	    //最新文章列表
-	    $.get("${ctx}/news/loadAllNews.action?page=1&limit=10",function(data){
+	    $.get("${ctx}/logInfo/loadAllLogInfo?page=1&limit=10",function(data){
 	        var hotNewsHtml = '';
-	        for(var i=0;i<data.data.length;i++){
+	        for(var i=0;i<10;i++){
 	            hotNewsHtml += '<tr ondblclick=viewNews('+data.data[i].id+')>'
 	                +'<td align="left"><a href="javascript:;"> '+data.data[i].title+'</a></td>'
-	                +'<td>'+data.data[i].createtime.substring(0,10)+'</td>'
+	                +'<td>'+data.data[i].createtime+'</td>'
 	                +'</tr>';
 	        }
 	        $(".hot_news").html(hotNewsHtml);

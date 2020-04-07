@@ -3,6 +3,8 @@ package com.ybu.mapper;
 import com.ybu.entity.File;
 import com.ybu.entity.FileExample;
 import java.util.List;
+
+import com.ybu.vo.FileVo;
 import org.apache.ibatis.annotations.Param;
 
 public interface FileMapper {
@@ -29,4 +31,6 @@ public interface FileMapper {
     int updateByPrimaryKey(File record);
 
     List<File> selectAllFiles();
+
+    List<File> queryAllFile(FileVo fileVo);
 }

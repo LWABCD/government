@@ -12,12 +12,31 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/layui/css/layui.css" />
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/layui/layui.js"></script>
 </head>
-<body>
+<body style="padding: 10px">
+<!-- 搜索条件开始 -->
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend>查询条件</legend>
+</fieldset>
+<form class="layui-form" method="post" id="searchFrm">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">网站名:</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name"  autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <button type="button" class="layui-btn layui-btn-normal  layui-icon layui-icon-search" id="doSearch">查询</button>
+            <button type="reset" class="layui-btn layui-btn-warm  layui-icon layui-icon-refresh">重置</button>
+        </div>
+    </div>
+</form>
 <!-- 数据表格开始 -->
 <table class="layui-hide" id="userTable" lay-filter="userTable"></table>
 <div id="page"></div>
 <div style="display: none;" id="userToolBar">
     <button type="button" class="layui-btn layui-btn-sm" lay-event="add">添加网站</button>
+    <button type="button" class="layui-btn layui-btn-danger layui-btn-sm" lay-event="deleteBatch">批量删除</button>
 </div>
 <div  id="userBar" style="display: none;">
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
@@ -73,8 +92,6 @@
         var upload = layui.upload;
         var element = layui.element;
 
-        var exceldata;
-
         //渲染数据表格
         var tableIns = table.render({
             elem: '#userTable'   //渲染的目标对象
@@ -84,11 +101,25 @@
             , height: '500'
             , width: '80%'
             , cellMinWidth: 100 //设置列的最小默认宽度
+            , page: true
+            , limits: [5,10,20]
             , cols: [[   //列表数据
-                {field: 'name', title: '名称', align: 'center', width: '500'}
+                {type: 'checkbox', fixed: 'left'}
+                ,{field: 'gid', title: 'ID', hide:true}
+                ,{field: 'name', title: '名称', align: 'center', width: '500'}
                 , {field: 'url', title: '链接', align: 'center', width: '500'}
                 , {field: 'right', title: '操作', fixed: 'right', width: 177, align: 'center', toolbar: "#userBar"}
             ]]
+        });
+
+        //模糊查询
+        $("#doSearch").click(function(){
+            var params=$("#searchFrm").serialize();
+            tableIns.reload({
+                url:"${ctx}/governmentwebsite/governmentwebsites?"+params,
+                page:{curr:1}
+
+            })
         });
 
         //监听头部工具栏事件
@@ -98,6 +129,8 @@
                     $("#editform")[0].reset();
                     openAddUser();
                     break;
+                case 'deleteBatch':
+                    deleteBatch();
             }
             ;
         })
@@ -165,6 +198,29 @@
                 });
             }
         });
+
+        //批量删除
+        function deleteBatch(){
+            //得到选中的数据行
+            var checkStatus = table.checkStatus('userTable');
+            var data = checkStatus.data;
+            var params="";
+            $.each(data,function(i,item){
+                if(i==0){
+                    params+="ids="+item.gid;
+                }else{
+                    params+="&ids="+item.gid;
+                }
+            });
+            layer.confirm('真的删除选中的这些网站吗', function(index){
+                //向服务端发送删除指令
+                $.post("${ctx}/governmentwebsite/deleteBatchGovWebsite",params,function(res){
+                    layer.msg(res.msg);
+                    //刷新数据 表格
+                    tableIns.reload();
+                })
+            });
+        }
     })
 
 </script>

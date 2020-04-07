@@ -59,11 +59,11 @@ public class UserController {
 
 	@RequestMapping("/upload")
 	@ResponseBody
-	public Result upload(@RequestParam("mf") CommonsMultipartFile photo){
+	public Result upload(@RequestParam("mf") CommonsMultipartFile photo,HttpSession session){
 		//获取真实文件名
 		String fileName = photo.getOriginalFilename();
 		fileName= UUID.randomUUID().toString()+fileName.substring(fileName.lastIndexOf("."));
-		String newFileName="G://images//"+fileName;
+		String newFileName="G://governmentfile//images//"+fileName;
 		System.out.println(newFileName);
 		File file=new File(newFileName);
 		//保存文件
@@ -72,9 +72,15 @@ public class UserController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		//用户更换头像后把信息保存到数据库，把session中的用户头像也更换掉
+		User user= (User) session.getAttribute("user");
+		String imageUrl="http://localhost:8080/governmentfile/images/"+fileName;
+		user.setPhoto(imageUrl);
+		userService.updateUser(user);
+		session.setAttribute("user", user);
 		Result result=new Result();
 		Map<String,Object> data=new HashMap<>();
-		data.put("src", "localhost:8080/governmentfile/images/"+fileName);
+		data.put("src", imageUrl);
 		result.setData(data);
 		return result;
 	}
@@ -104,15 +110,27 @@ public class UserController {
 	}
 
 	@RequestMapping("/changepwd")
-	public String changePwd(String newpwd,HttpSession session){
-		UserVo userVo= (UserVo) session.getAttribute("user");
+	@ResponseBody
+	public Result changePwd(String newpwd,HttpSession session){
+		System.out.println("newpwd:"+newpwd);
+		User user= (User) session.getAttribute("user");
 		Md5Hash md5Hash=new Md5Hash(newpwd);
-		userVo.setPassword(md5Hash.toString());
-		int code=userService.updateUser(userVo);
-		if(code==1){
-			session.setAttribute("user", userVo);
+		user.setPassword(md5Hash.toString());
+		Result result=new Result();
+		try {
+			userService.updateUser(user);
+			session.setAttribute("user", user);
+			result.setCode(1);
+			return result;
+		}catch (Exception e){
+			result.setCode(0);
+			return result;
 		}
-		return "redirect:/user/tochangepwd";
+//		int code=userService.updateUser(user);
+//		if(code==1){
+//			session.setAttribute("user", user);
+//		}
+//		return "redirect:/user/tochangepwd";
 	}
 
 	@RequestMapping("/loadAllUser")

@@ -3,6 +3,8 @@ package com.ybu.admin.controller;
 import com.ybu.admin.service.NewsService;
 import com.ybu.entity.News;
 import com.ybu.entity.Result;
+import com.ybu.vo.NewsVo;
+import com.ybu.vo.OpenGovernmentVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,12 +39,8 @@ public class NewsController{
 
     @RequestMapping("/newsList")
     @ResponseBody
-    public Result newsList(){
-        List<News> newsList=newsService.newsList();
-        Result result=new Result();
-        result.setCode(0);
-        result.setData(newsList);
-        return result;
+    public Result newsList(NewsVo newsVo){
+       return newsService.newsList(newsVo);
     }
 
     @RequestMapping("/saveNews")
@@ -78,6 +76,21 @@ public class NewsController{
         Result result = new Result();
         result.setCode(code);
         return result;
+    }
+
+    @RequestMapping("/deleteBatchNews")
+    @ResponseBody
+    public Result deleteBatchNews(NewsVo newsVo) {
+        Result result = new Result();
+        try {
+            newsService.deleteBatchNews(newsVo.getIds());
+            result.setMsg("批量删除成功");
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.setMsg("批量删除失败");
+            return result;
+        }
     }
 
     @RequestMapping("/upload")

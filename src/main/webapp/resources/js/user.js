@@ -36,24 +36,24 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
         }
     });
 
-    // form.on('submit(changePwd)', function(data){
-    //     $.ajax({
-    //         url:'/government/user/changepwd',
-    //         method:'post',
-    //         data:data.field,
-    //         dataType:'JSON',
-    //         success:function(result){
-    //             if (result.code==1){
-    //                 layer.alert("保存成功");
-    //             }else{
-    //                 layer.alert("保存失败");
-    //             }
-    //         },
-    //         error:function (data) {
-    //
-    //         }
-    //     }) ;
-    // });
+    form.on('submit(changePwd)', function(data){
+        $.ajax({
+            url:'/government/user/changepwd',
+            method:'post',
+            data:data.field,
+            dataType:'JSON',
+            success:function(result){
+                if (result.code==1){
+                    layer.alert("保存成功");
+                }else{
+                    layer.alert("保存失败");
+                }
+            },
+            error:function (data) {
+
+            }
+        }) ;
+    });
 
     // $(document).on('click','#changepwd',function(){
     //     //var newpwd=$("#newpwd").val();

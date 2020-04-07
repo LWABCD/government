@@ -3,6 +3,8 @@ package com.ybu.mapper;
 import com.ybu.entity.News;
 import com.ybu.entity.NewsExample;
 import java.util.List;
+
+import com.ybu.vo.NewsVo;
 import org.apache.ibatis.annotations.Param;
 
 public interface NewsMapper {
@@ -35,4 +37,8 @@ public interface NewsMapper {
     int updateByPrimaryKey(News record);
 
     List<News> selectAllNews();
+
+    List<News> queryAllNews(NewsVo newsVo);
+
+    void deleteBatchNews(Integer[] ids);
 }

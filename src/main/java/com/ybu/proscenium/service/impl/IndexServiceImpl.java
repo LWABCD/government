@@ -30,7 +30,11 @@ public class IndexServiceImpl implements IndexService{
 
     @Override
     public Announcement announcementDetail(Integer aid) {
-        return announcementMapper.selectByPrimaryKey(aid);
+        Announcement announcement=announcementMapper.selectByPrimaryKey(aid);
+        //每点击公告详情一次就把该公告的阅读数加1并保存到数据库中
+        announcement.setReadnumber(announcement.getReadnumber()+1);
+        announcementMapper.updateByPrimaryKey(announcement);
+        return announcement;
     }
 
     @Override
@@ -45,13 +49,9 @@ public class IndexServiceImpl implements IndexService{
 
     @Override
     public News newsDetail(Integer nid) {
-        NewsExample example=new NewsExample();
-        NewsExample.Criteria criteria=example.createCriteria();
-        criteria.andNidEqualTo(nid);
-        List<News> news=newsMapper.selectByExampleWithBLOBs(example);
-        if(news.size()>0){
-            return news.get(0);
-        }
-        return null;
+        News news=newsMapper.selectByPrimaryKey(nid);
+        news.setReadnumber(news.getReadnumber()+1);
+        newsMapper.updateByPrimaryKeyWithBLOBs(news);
+        return news;
     }
 }

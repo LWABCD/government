@@ -34,13 +34,9 @@ public class POpenGovernmentServiceImpl implements POpenGovernmentService{
 
     @Override
     public Opengovernment openGovDetail(Integer oid) {
-        OpengovernmentExample example=new OpengovernmentExample();
-        OpengovernmentExample.Criteria criteria=example.createCriteria();
-        criteria.andOidEqualTo(oid);
-        List<Opengovernment> opengovernments=opengovernmentMapper.selectByExampleWithBLOBs(example);
-        if(opengovernments.size()>0){
-            return opengovernments.get(0);
-        }
-        return null;
+        Opengovernment opengovernment=opengovernmentMapper.selectByPrimaryKey(oid);
+        opengovernment.setReadnumber(opengovernment.getReadnumber()+1);
+        opengovernmentMapper.updateByPrimaryKeyWithBLOBs(opengovernment);
+        return opengovernment;
     }
 }

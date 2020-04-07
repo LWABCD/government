@@ -1,11 +1,12 @@
 package com.ybu.admin.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.ybu.admin.service.OpengovernmentService;
-import com.ybu.entity.Opengovernment;
-import com.ybu.entity.OpengovernmentExample;
-import com.ybu.entity.Opengovtype;
+import com.ybu.entity.*;
 import com.ybu.mapper.OpengovernmentMapper;
 import com.ybu.mapper.OpengovtypeMapper;
+import com.ybu.vo.OpenGovernmentVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,11 +22,13 @@ public class OpengovernmentServiceImpl implements OpengovernmentService{
     private OpengovtypeMapper opengovtypeMapper;
 
     @Override
-    public List<Opengovernment> openGovernments(Integer ogtid) {
-        OpengovernmentExample example=new OpengovernmentExample();
-        OpengovernmentExample.Criteria criteria=example.createCriteria();
-        criteria.andOgtidEqualTo(ogtid);
-        return opengovernmentMapper.selectByExampleWithBLOBs(example);
+    public Result openGovernments(OpenGovernmentVo openGovernmentVo) {
+        Page<Object> page= PageHelper.startPage(openGovernmentVo.getPage(), openGovernmentVo.getLimit());
+        List<Opengovernment> data =opengovernmentMapper.queryAllOpenGovernment(openGovernmentVo);
+        Result result=new Result();
+        result.setCount(page.getTotal());
+        result.setData(data);
+        return result;
     }
 
     @Override
@@ -52,5 +55,12 @@ public class OpengovernmentServiceImpl implements OpengovernmentService{
     @Override
     public Opengovernment openGovDetail(Integer oid) {
         return opengovernmentMapper.selectByPrimaryKey(oid);
+    }
+
+    @Override
+    public void deleteBatchOpenGovernment(Integer[] ids) {
+        for(Integer oid:ids){
+            opengovernmentMapper.deleteByPrimaryKey(oid);
+        }
     }
 }

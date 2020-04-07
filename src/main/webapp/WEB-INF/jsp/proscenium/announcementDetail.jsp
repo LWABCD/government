@@ -16,7 +16,11 @@ String path = request.getContextPath();
 	<meta http-equiv="description" content="This is my page"/>
 	<link href="<%=path%>/resources/css/Common.css" rel="stylesheet" type="text/css" />
     <link href="<%=path%>/resources/css/sitegeneric08.css" rel="stylesheet" type="text/css" />
-    <script language="JavaScript" src="<%=path %>/js/public.js" type="text/javascript"></script>
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
+      <link rel="stylesheet" href="<%=path%>/resources/css/typo.css" /><!--内容排版-->
+
+      <script language="JavaScript" src="<%=path %>/js/public.js" type="text/javascript"></script>
     <script language="javascript">
     </script>
 
@@ -61,8 +65,13 @@ String path = request.getContextPath();
 								<td align="center"><hr></td>
 							</tr>
 							<tr>
-								<td><span style="font-size: larger">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${requestScope.content}</span></td>
-						    </tr>
+<%--								<td><span style="font-size: larger">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${requestScope.content}</span></td>--%>
+                                    <td>
+                                        <div class="typo  typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large">
+                                            <p>${requestScope.content}</p>
+                                        </div>
+                                    </td>
+                            </tr>
 						    <tr style="height: 50px">
 						       <td align="right"><fmt:formatDate value="${requestScope.announcement.createtime}" pattern="yyyy-MM-dd"/></td>
 						    </tr>

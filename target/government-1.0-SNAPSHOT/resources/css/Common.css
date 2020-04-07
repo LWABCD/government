@@ -554,7 +554,7 @@ IMG {
 	COLOR: #197570; TEXT-DECORATION: underline
 }
 .NewContainer770 .Slot {
-	BORDER-RIGHT: #c9e4ea 1px solid; PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 0px; BORDER-LEFT: #c9e4ea 1px solid; WIDTH: 890px; PADDING-TOP: 0px; BORDER-BOTTOM: #c9e4ea 1px solid; TEXT-ALIGN: left
+	BORDER-RIGHT: #c9e4ea 1px solid; PADDING-RIGHT: 10px; background-color: white; PADDING-LEFT: 10px; FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 0px; BORDER-LEFT: #c9e4ea 1px solid; WIDTH: 890px; PADDING-TOP: 0px; BORDER-BOTTOM: #c9e4ea 1px solid; TEXT-ALIGN: left
 }
 .NewContainer770 .SlotNoPadding {
 	BORDER-RIGHT: #c9e4ea 1px solid; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 0px; BORDER-LEFT: #c9e4ea 1px solid; WIDTH: 768px; PADDING-TOP: 5px; BORDER-BOTTOM: #c9e4ea 1px solid; TEXT-ALIGN: left
@@ -1336,7 +1336,7 @@ A:hover {
 	BACKGROUND-IMAGE: url(../lg/cs-bai-xiaojiantou.gif); WIDTH: 192px; HEIGHT: 17px
 }
 .SquarelyGreenContainer .Slot {
-	BORDER-RIGHT: #78bcbb 1px solid; PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; PADDING-BOTTOM: 5px; BORDER-LEFT: #78bcbb 1px solid; WIDTH: 270px; LINE-HEIGHT: 22px; PADDING-TOP: 5px; BORDER-BOTTOM: #78bcbb 1px solid; TEXT-ALIGN: center
+	BORDER-RIGHT: #78bcbb 1px solid; PADDING-RIGHT: 10px; background-color: white; PADDING-LEFT: 10px; FLOAT: left; PADDING-BOTTOM: 5px; BORDER-LEFT: #78bcbb 1px solid; WIDTH: 270px; LINE-HEIGHT: 22px; PADDING-TOP: 5px; BORDER-BOTTOM: #78bcbb 1px solid; TEXT-ALIGN: center
 }
 .SquarelyGreenContainer .SpecialSlot {
 	BORDER-RIGHT: #78bcbb 1px solid; PADDING-BOTTOM: 10px; BORDER-LEFT: #78bcbb 1px solid; WIDTH: 190px; LINE-HEIGHT: 22px; BORDER-BOTTOM: #78bcbb 1px solid; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: left

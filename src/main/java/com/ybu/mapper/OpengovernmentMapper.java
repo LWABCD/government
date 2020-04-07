@@ -3,6 +3,8 @@ package com.ybu.mapper;
 import com.ybu.entity.Opengovernment;
 import com.ybu.entity.OpengovernmentExample;
 import java.util.List;
+
+import com.ybu.vo.OpenGovernmentVo;
 import org.apache.ibatis.annotations.Param;
 
 public interface OpengovernmentMapper {
@@ -33,4 +35,6 @@ public interface OpengovernmentMapper {
     int updateByPrimaryKeyWithBLOBs(Opengovernment record);
 
     int updateByPrimaryKey(Opengovernment record);
+
+    List<Opengovernment> queryAllOpenGovernment(OpenGovernmentVo openGovernmentVo);
 }

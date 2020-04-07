@@ -4,6 +4,8 @@ import com.ybu.admin.service.OpengovernmentService;
 import com.ybu.entity.Opengovernment;
 import com.ybu.entity.Opengovtype;
 import com.ybu.entity.Result;
+import com.ybu.vo.AnnouncementVo;
+import com.ybu.vo.OpenGovernmentVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,16 +35,8 @@ public class OpengovernmentController{
 
     @RequestMapping("opengovernments")
     @ResponseBody
-    public Result openGovernments(Integer ogtid){
-        if(ogtid==null){
-            ogtid=1;
-        }
-        List<Opengovernment> opengovernments=opengovernmentService.openGovernments(ogtid);
-        Result result=new Result();
-        result.setCode(0);
-        result.setData(opengovernments);
-        result.setMsg("");
-        return result;
+    public Result openGovernments(OpenGovernmentVo openGovernmentVo){
+        return opengovernmentService.openGovernments(openGovernmentVo);
     }
 
     @RequestMapping("/saveopengov")
@@ -61,6 +55,21 @@ public class OpengovernmentController{
         Result result=new Result();
         result.setCode(code);
         return result;
+    }
+
+    @RequestMapping("/deleteBatchOpenGovernment")
+    @ResponseBody
+    public Result deleteBatchOpenGovernment(OpenGovernmentVo openGovernmentVo){
+        Result result=new Result();
+        try {
+            opengovernmentService.deleteBatchOpenGovernment(openGovernmentVo.getIds());
+            result.setMsg("批量删除成功");
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.setMsg("批量删除失败");
+            return result;
+        }
     }
 
     @RequestMapping("/opengovdetail")

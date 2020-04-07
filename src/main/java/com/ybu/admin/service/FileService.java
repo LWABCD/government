@@ -1,14 +1,18 @@
 package com.ybu.admin.service;
 
 import com.ybu.entity.File;
+import com.ybu.entity.Result;
+import com.ybu.vo.FileVo;
 
 import java.util.List;
 
 public interface FileService{
 
-    List<File> files();
+    Result files(FileVo fileVo);
 
     int saveFile(File file);
 
-    int deleteFile(Integer fid);
+    void deleteFile(FileVo fileVo);
+
+    void deleteBatchFile(Integer[] ids);
 }

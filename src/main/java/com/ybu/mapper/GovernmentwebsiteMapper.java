@@ -3,6 +3,8 @@ package com.ybu.mapper;
 import com.ybu.entity.Governmentwebsite;
 import com.ybu.entity.GovernmentwebsiteExample;
 import java.util.List;
+
+import com.ybu.vo.GovernmentWebsiteVo;
 import org.apache.ibatis.annotations.Param;
 
 public interface GovernmentwebsiteMapper {
@@ -29,4 +31,6 @@ public interface GovernmentwebsiteMapper {
     int updateByPrimaryKey(Governmentwebsite record);
 
     List<Governmentwebsite> selectAllWebsites();
+
+    List<Governmentwebsite> queryAllGovWebsite(GovernmentWebsiteVo governmentWebsiteVo);
 }

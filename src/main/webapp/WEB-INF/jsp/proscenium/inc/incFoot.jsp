@@ -16,21 +16,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-
+	  <link rel="stylesheet" href="${ctx }/resources/layui/css/layui.css" media="all" />
+	  <script type="text/javascript" src="${ctx }/resources/layui/layui.js"></script>
   </head>
   
   <body>
-     <div class="FooterContainer ">
-			<ul>
-				<li>
-					<a href="">网站声明</a>&nbsp;&nbsp; |&nbsp;&nbsp;
-					<a href="">服务网点</a>&nbsp;&nbsp; |&nbsp;
-					<a href="">网站地图</a>&nbsp; |&nbsp;&nbsp;
-					<a href="">联系我们</a>&nbsp;&nbsp; |&nbsp;&nbsp;
-					<a href=""">客服热线：********</a> 
-				</li>
-				
-			</ul>
-	</div>
+<%--     <div class="FooterContainer ">--%>
+		 <!-- 底部 -->
+		 <div class="layui-footer footer">
+			 <p><span>copyright @2020 Gov</span></p>
+		 </div>
+<%--	</div>--%>
   </body>
 </html>

@@ -301,4 +301,27 @@
       ogtid = #{ogtid,jdbcType=INTEGER}
     where oid = #{oid,jdbcType=INTEGER}
   </update>
+
+  <!-- 查询 -->
+  <select id="queryAllOpenGovernment"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from opengovernment
+    <where>
+      <if test="ogtid!=null">
+        and ogtid = #{ogtid}
+      </if>
+      <if test="title!=null and title!=''">
+        and title like concat("%",#{title},"%")
+      </if>
+      <if test="startTime!=null">
+        and updatetime >=#{startTime}
+      </if>
+      <if test="endTime!=null">
+        <!-- and logintime &lt; = #{endTime} -->
+        and updatetime  <![CDATA[<=]]> #{endTime}
+      </if>
+    </where>
+    order by updatetime desc
+  </select>
 </mapper>

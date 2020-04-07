@@ -23,7 +23,7 @@ public interface UserService {
 	 */
 	public void resetUserPwd(Integer uid);
 
-	int updateUser(UserVo userVo);
+	int updateUser(User user);
 
     List<User> users(UserVo userVo);
 

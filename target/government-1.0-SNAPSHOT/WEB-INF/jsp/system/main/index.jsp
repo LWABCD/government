@@ -63,7 +63,7 @@
 			<div class="navBar layui-side-scroll" id="navBar">
 				<ul class="layui-nav layui-nav-tree">
 					<li class="layui-nav-item layui-this">
-						<a href="javascript:;" data-url="${ctx }/desk/toDeskManager.action"><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a>
+						<a href="javascript:;" data-url="${ctx }/adminIndex/toAdminIndex"><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a>
 					</li>
 				</ul>
 			</div>
@@ -86,7 +86,7 @@
 				</ul>
 				<div class="layui-tab-content clildFrame">
 					<div class="layui-tab-item layui-show">
-						<iframe src="${ctx }/resources/desk/toDeskManager.action"></iframe>
+						<iframe src="${ctx }/adminIndex/toAdminIndex"></iframe>
 					</div>
 				</div>
 			</div>

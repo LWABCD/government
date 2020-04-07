@@ -88,7 +88,7 @@ String path = request.getContextPath();
 					<div class="BoxHeader">
 						<div class="BoxHeader-center MarginTop10"><a href="/government/index/toAllNews">新闻动态</a></div>
 					</div>
-					<div class="Slot" align="center">
+					<div class="Slot" align="center" style="background-color: white;height: 570px;">
 						<jsp:include flush="true" page="/WEB-INF/jsp/proscenium/newsTop5.jsp"></jsp:include>
                     </div>
 				</div>
@@ -112,7 +112,7 @@ String path = request.getContextPath();
 	
 	
 <!--foot -->	
-<div align="center" class="Wrapper">
+<div align="center" class="Wrapper" style="padding-bottom: 0px">
 	<div id="footer" align="center" class="Footer">
 		 <jsp:include flush="true" page="/WEB-INF/jsp/proscenium/inc/incFoot.jsp"></jsp:include>
 	</div>

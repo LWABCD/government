@@ -2,11 +2,13 @@ package com.ybu.admin.service;
 
 import com.ybu.entity.Opengovernment;
 import com.ybu.entity.Opengovtype;
+import com.ybu.entity.Result;
+import com.ybu.vo.OpenGovernmentVo;
 
 import java.util.List;
 
 public interface OpengovernmentService {
-    List<Opengovernment> openGovernments(Integer ogtid);
+    Result openGovernments(OpenGovernmentVo openGovernmentVo);
 
     int saveOpengov(Opengovernment opengovernment);
 
@@ -15,4 +17,6 @@ public interface OpengovernmentService {
     List<Opengovtype> openGovTypes();
 
     Opengovernment openGovDetail(Integer oid);
+
+    void deleteBatchOpenGovernment(Integer[] ids);
 }
