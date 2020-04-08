@@ -13,7 +13,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-    <title>所有公告</title>
+    <title>领导信箱</title>
     <link href="<%=path%>/resources/css/Common.css" rel="stylesheet" type="text/css" />
     <link href="<%=path%>/resources/css/sitegeneric08.css" rel="stylesheet" type="text/css" />
     <script language="JavaScript" src="<%=path %>/js/public.js" type="text/javascript"></script>

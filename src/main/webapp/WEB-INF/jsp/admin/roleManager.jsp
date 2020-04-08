@@ -236,7 +236,7 @@
             var menuTree;
             mainIndex=layer.open({
                 type:1,
-                title:'分配【'+data.rolename+'】的角色',
+                title:'分配【'+data.rolename+'】的权限',
                 content:$("#selectRoleMenu"),
                 area:['400px','500px'],
                 btnAlign:'c',

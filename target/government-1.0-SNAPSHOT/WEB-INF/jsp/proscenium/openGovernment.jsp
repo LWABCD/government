@@ -11,7 +11,7 @@
 %>
 <html>
 <head>
-    <title>Title</title>
+    <title>政务公开</title>
     <link href="<%=path%>/resources/css/Common.css" rel="stylesheet" type="text/css" />
     <link href="<%=path%>/resources/css/sitegeneric08.css" rel="stylesheet" type="text/css" />
     <script language="JavaScript" src="<%=path %>/js/public.js" type="text/javascript"></script>

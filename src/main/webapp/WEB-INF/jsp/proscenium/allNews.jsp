@@ -13,13 +13,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-    <title>所有公告</title>
+    <title>所有新闻</title>
     <link href="<%=path%>/resources/css/Common.css" rel="stylesheet" type="text/css" />
     <link href="<%=path%>/resources/css/sitegeneric08.css" rel="stylesheet" type="text/css" />
     <script language="JavaScript" src="<%=path %>/js/public.js" type="text/javascript"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/layui/css/layui.css" />
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/layui/layui.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.11.3.min.js"></script>
+
+    <style type="text/css">
+        body,html{
+            width: 100%;
+            height: 100%;
+            background-color: aquamarine;
+            font-size: 0.9rem;
+            background-image: url(${pageContext.request.contextPath}/resources/images/indexbackground.jpg);
+            background-size: 100% 100%;
+        }
+    </style>
+
 </head>
 <body>
 <jsp:include flush="true" page="/WEB-INF/jsp/proscenium/inc/incTop.jsp"></jsp:include>
@@ -72,7 +84,7 @@
                     //第一个实例
                     table.render({
                         elem: '#userTable'
-                        ,height: 260
+                        ,height: 400
                         // ,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
                         //     layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
                         //     //,curr: 5 //设定初始在第 5 页

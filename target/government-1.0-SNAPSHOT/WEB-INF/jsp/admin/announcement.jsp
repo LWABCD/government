@@ -168,7 +168,7 @@
                     params+="&ids="+item.aid;
                 }
             });
-            layer.confirm('真的删除选中的这些日志吗', function(index){
+            layer.confirm('真的删除选中的这些公告吗', function(index){
                 //向服务端发送删除指令
                 $.post("${ctx}/announcement/deleteBatchAnnouncement",params,function(res){
                     layer.msg(res.msg);

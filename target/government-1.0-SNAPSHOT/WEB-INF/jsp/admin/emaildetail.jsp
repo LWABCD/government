@@ -12,6 +12,7 @@
     <title>信箱详情</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/layui/css/layui.css" />
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/layui/layui.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 <div style="padding-left: 130px">
@@ -31,7 +32,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">信件日期:</label>
             <div class="layui-input-inline">
-                <input type="text" name="sendtime" value="${sessionScope.ed.sendtime}" lay-verify="required" disabled autocomplete="off"
+                <input type="text" id="sendtime" name="sendtime" value="${sessionScope.ed.sendtime}" lay-verify="required" disabled autocomplete="off"
                        class="layui-input">
             </div>
         </div>
@@ -104,6 +105,25 @@
 </body>
 
 <script>
+
+    //值小于10时，在前面补0
+    function dateFilter(date){
+        if(date < 10){return "0"+date;}
+        return date;
+    }
+    function tranDate(timeObj){
+        var dateObj = new Date(); //表示当前系统时间的Date对象
+        dateObj.setDate(timeObj.val());
+        var year = dateObj.getFullYear(); //当前系统时间的完整年份值
+        var month = dateObj.getMonth()+1; //当前系统时间的月份值
+        var date = dateObj.getDate(); //当前系统时间的月份中的日
+        var hour = dateObj.getHours(); //当前系统时间的小时值
+        var minute = dateObj.getMinutes(); //当前系统时间的分钟值
+        var second = dateObj.getSeconds(); //当前系统时间的秒钟
+        var tranDate=dateFilter(year)+"-"+dateFilter(month)+"-"+dateFilter(date)+" "+dateFilter(hour)+":"+dateFilter(minute)+":"+dateFilter(second);
+        timeObj.val(tranDate);
+    }
+
     layui.use([ 'jquery', 'layer', 'form','laydate','element'], function() {
         var $ = layui.jquery;
         var layer = layui.layer;
@@ -145,6 +165,7 @@
         $("#reset").click(function () {
             $("#replycontent").val('');
         });
+
     })
 
 </script>

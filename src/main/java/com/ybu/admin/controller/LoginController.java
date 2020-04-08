@@ -44,10 +44,10 @@ public class LoginController {
 	 */
 	@RequestMapping("login")
 	public String login(User user, Model model, HttpSession session, HttpServletRequest request) {
-		User curUser= (User) session.getAttribute("user");
-		if(curUser!=null){
-			return "admin/index";
-		}
+//		User curUser= (User) session.getAttribute("user");
+//		if(curUser!=null){
+//			return "admin/index";
+//		}
 		List<User> users=userService.login(user);
 		if(users.size()>0){
 			User u=users.get(0);

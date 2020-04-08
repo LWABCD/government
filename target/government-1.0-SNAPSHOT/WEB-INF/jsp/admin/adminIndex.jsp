@@ -71,6 +71,18 @@
         setTimeout("getLangDate()",1000);
     }
 
+    function tranDate(data){
+        var dateObj = new Date(); //表示当前系统时间的Date对象
+        dateObj.setDate(data);
+        var year = dateObj.getFullYear(); //当前系统时间的完整年份值
+        var month = dateObj.getMonth()+1; //当前系统时间的月份值
+        var date = dateObj.getDate(); //当前系统时间的月份中的日
+        var hour = dateObj.getHours(); //当前系统时间的小时值
+        var minute = dateObj.getMinutes(); //当前系统时间的分钟值
+        var second = dateObj.getSeconds(); //当前系统时间的秒钟
+        return dateFilter(year)+"-"+dateFilter(month)+"-"+dateFilter(date)+" "+dateFilter(hour)+":"+dateFilter(minute)+":"+dateFilter(second);
+    }
+
     layui.use(['form','element','layer','jquery'],function(){
         var form = layui.form,
             layer = parent.layer === undefined ? layui.layer : top.layer,
@@ -92,6 +104,7 @@
             var hotNewsHtml = '';
             for(var i=0;i<10;i++){
                 <%--var fmt="<fmt:formatDate value=\""+data.data[i].logintime+"\" pattern=\"yyyy-MM-dd:hh:mm:ss\"/>";--%>
+                //var tranDate=tranDate(data.data[i].logintime);
                 hotNewsHtml += '<tr ondblclick=viewNews('+data.data[i].id+')>'
                     +'<td align="left"><a href="javascript:;"> '+data.data[i].loginname+'</a></td>'
                     +'<td>'+data.data[i].logintime+'</td>'

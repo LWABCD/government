@@ -49,7 +49,7 @@
 <table class="layui-hide" id="userTable" lay-filter="userTable"></table>
 <div id="page"></div>
 <div style="display: none;" id="userToolBar">
-    <button type="button" class="layui-btn layui-btn-sm" lay-event="add">添加公开内容</button>
+    <button type="button" class="layui-btn layui-btn-sm" lay-event="add">添加新闻</button>
     <button type="button" class="layui-btn layui-btn-danger layui-btn-sm" lay-event="deleteBatch">批量删除</button>
 </div>
 <div  id="userBar" style="display: none;">

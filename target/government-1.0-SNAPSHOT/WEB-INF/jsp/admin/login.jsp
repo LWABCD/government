@@ -4,7 +4,7 @@
 <html class="loginHtml">
 <head>
 	<meta charset="utf-8">
-	<title>登录-汽车出租系统</title>
+	<title>登录-后台管理系统</title>
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -17,7 +17,7 @@
 </head>
 <body class="loginBody">
 	<form class="layui-form" id="loginFrm" method="post" action="${ctx }/login/login">
-		<div class="login_face"><img src="${ctx}/resources/images/face.jpg" class="userAvatar"></div>
+		<div class="login_face"><img src="http://t.cn/RCzsdCq" class="userAvatar"></div>
 		<div class="layui-form-item input-item">
 			<label for="userName">用户名</label>
 			<input type="text" placeholder="请输入用户名" autocomplete="off" name="username" id="userName" class="layui-input" lay-verify="required">
