@@ -11,7 +11,7 @@
  Target Server Version : 50536
  File Encoding         : 65001
 
- Date: 08/04/2020 18:10:32
+ Date: 10/04/2020 20:03:12
 */
 
 SET NAMES utf8mb4;
@@ -42,17 +42,7 @@ INSERT INTO `announcement` VALUES (31, 'text//543c0969-98dc-4ca4-8d32-5f28df1555
 INSERT INTO `announcement` VALUES (30, 'text//623f8f09-15de-40f8-88ca-5a9ffd77c7e3.txt', '2020-04-08 14:15:07', '宜宾市人民政府', '2020-04-08 14:15:07', 0, '宜宾市人民政府 关于第三轮宜宾市敬老模范区县 评选结果的通报');
 INSERT INTO `announcement` VALUES (32, 'text//b34c1833-cfa6-4a27-89eb-6a2133be8e48.txt', '2020-04-08 14:17:15', '宜宾市人民政府办公室', '2020-04-08 14:17:15', 3, '宜宾市人民政府办公室 关于成立第二届宜宾市社会保险 监督委员会的通知');
 INSERT INTO `announcement` VALUES (33, 'text//1ff000eb-df10-4e37-b88a-359b07faa62c.txt', '2020-04-08 14:18:15', '宜宾市人民政府办公室', '2020-04-08 14:18:15', 2, '宜宾市人民政府办公室 关于成立宜宾市绿化委员会的通知');
-INSERT INTO `announcement` VALUES (34, 'text//7873c251-9973-4809-b00b-8c478752934e.txt', '2020-04-08 14:19:18', '宜宾市人民政府', '2020-04-08 14:19:18', 5, '宜宾市人民政府 关于任免肖向前等十人职务的通知');
-
--- ----------------------------
--- Table structure for conveniencephone
--- ----------------------------
-DROP TABLE IF EXISTS `conveniencephone`;
-CREATE TABLE `conveniencephone`  (
-  `cid` int(11) NOT NULL,
-  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`cid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_mysql500_ci ROW_FORMAT = Dynamic;
+INSERT INTO `announcement` VALUES (34, 'text//7873c251-9973-4809-b00b-8c478752934e.txt', '2020-04-08 14:19:18', '宜宾市人民政府', '2020-04-08 14:19:18', 6, '宜宾市人民政府 关于任免肖向前等十人职务的通知');
 
 -- ----------------------------
 -- Table structure for emailreply
@@ -155,18 +145,6 @@ INSERT INTO `leaderemail` VALUES (6, '小李', '510322200904091234', '1234567890
 INSERT INTO `leaderemail` VALUES (7, '小张', '510322200904091234', '12345678904', '1234567894@qq.com', '翠屏区', '建议尽快修建孔滩-白花、观音快速通道', '市领导：目前叙州区开启了泥溪到观音的快速通道建设。成宜高速又在观音设置了口子。建议翠屏区尽快启动孔滩-白花-一曼故居-观音的快速通道建设。\r\n', '2020-03-14 15:03:09', 0);
 
 -- ----------------------------
--- Table structure for message
--- ----------------------------
-DROP TABLE IF EXISTS `message`;
-CREATE TABLE `message`  (
-  `mid` int(11) NOT NULL,
-  `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci NULL DEFAULT NULL,
-  `createtime` datetime NULL DEFAULT NULL,
-  `uid` int(11) NOT NULL,
-  PRIMARY KEY (`mid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_mysql500_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
 -- Table structure for news
 -- ----------------------------
 DROP TABLE IF EXISTS `news`;
@@ -185,7 +163,7 @@ CREATE TABLE `news`  (
 -- ----------------------------
 -- Records of news
 -- ----------------------------
-INSERT INTO `news` VALUES (17, '4月7日，市委书记刘中伯与中国五冶集团党委副书记、董事、总经理朱永繁举行会见，双方就如何进一步深化市企合作进行深入交流洽谈。\n\n刘中伯首先代表市委、市政府对中国五冶集团长期以来积极参与支持宜宾建设表示感谢。刘中伯说，在疫情防控和经济社会发展“两手抓”的关键时期，中国五冶集团来宜考察对接项目，充分体现了企业对宜宾发展的高度信任和大力支持。近年来，宜宾发展势头较快，中国五冶集团拥有良好的信誉和雄厚的实力，把宜宾作为重点投资和发展的区域，在双方的共同努力下，已有的合作项目正加快推进，取得了实实在在的效果。\n\n刘中伯表示，宜宾和中国五冶集团有着深厚的友谊和坚实的合作基础。希望中国五冶集团一如既往地支持宜宾发展，在区域总部建设、“双城”建设、城市基础设施建设等方面继续深化与宜宾的合作。宜宾市委、市政府将全力做好服务工作，切实解决项目推进中存在的困难和问题，为企业在宜发展提供良好环境。\n\n朱永繁表示，近年来，在市委、市政府的领导下宜宾发展突飞猛进，产业发展、城市建设等发生了翻天覆地的变化，取得了看得见、摸得着的显著成效。中国五冶集团与宜宾长期以来有着良好的合作基础，在今后的合作中将继续发挥企业自身优势，进一步参与到宜宾更多的项目建设中，切实将中国五冶集团在宜宾建设的项目打造成精品，实现双方共同发展。\n\n中国五冶集团党委委员、副总经理张刚，市领导李学焦、张琦会见时在座。(记者 何川)', '2020-04-08 14:40:41', '刘中伯会见中国五冶集团总经理朱永繁', '2020-04-08 14:40:41', '宜宾日报', 4, 'http://localhost:8080/governmentfile/file/e76f4aac-625a-4da0-9082-36d50d4a4f1c.jpg');
+INSERT INTO `news` VALUES (17, '4月7日，市委书记刘中伯与中国五冶集团党委副书记、董事、总经理朱永繁举行会见，双方就如何进一步深化市企合作进行深入交流洽谈。\n\n刘中伯首先代表市委、市政府对中国五冶集团长期以来积极参与支持宜宾建设表示感谢。刘中伯说，在疫情防控和经济社会发展“两手抓”的关键时期，中国五冶集团来宜考察对接项目，充分体现了企业对宜宾发展的高度信任和大力支持。近年来，宜宾发展势头较快，中国五冶集团拥有良好的信誉和雄厚的实力，把宜宾作为重点投资和发展的区域，在双方的共同努力下，已有的合作项目正加快推进，取得了实实在在的效果。\n\n刘中伯表示，宜宾和中国五冶集团有着深厚的友谊和坚实的合作基础。希望中国五冶集团一如既往地支持宜宾发展，在区域总部建设、“双城”建设、城市基础设施建设等方面继续深化与宜宾的合作。宜宾市委、市政府将全力做好服务工作，切实解决项目推进中存在的困难和问题，为企业在宜发展提供良好环境。\n\n朱永繁表示，近年来，在市委、市政府的领导下宜宾发展突飞猛进，产业发展、城市建设等发生了翻天覆地的变化，取得了看得见、摸得着的显著成效。中国五冶集团与宜宾长期以来有着良好的合作基础，在今后的合作中将继续发挥企业自身优势，进一步参与到宜宾更多的项目建设中，切实将中国五冶集团在宜宾建设的项目打造成精品，实现双方共同发展。\n\n中国五冶集团党委委员、副总经理张刚，市领导李学焦、张琦会见时在座。(记者 何川)', '2020-04-08 14:40:41', '刘中伯会见中国五冶集团总经理朱永繁', '2020-04-08 14:40:41', '宜宾日报', 5, 'http://localhost:8080/governmentfile/file/e76f4aac-625a-4da0-9082-36d50d4a4f1c.jpg');
 INSERT INTO `news` VALUES (13, '4月3日，市委副书记、市长杜紫平率队到叙州区检查督导森林防火灭火工作，并走访慰问了困难群众。\n\n检查督导中，杜紫平来到七星山森林防火临时检查站、岷江林场七星山工区等地，详细了解重点火源管控区域森林防火值班值守、防火灭火物资储备等情况。\n\n杜紫平强调，春季天干物燥，是森林火灾易发高发阶段，各级各有关部门要深入学习贯彻习近平总书记对凉山森林火灾作出的重要指示和李克强总理等中央领导批示精神，进一步强化思想警觉、提高政治站位，充分认识抓好森林防火工作的极端重要性和紧迫性，采取有力有效措施，坚决遏制重特大森林火灾发生，确保人民群众生命和财产安全。\n\n杜紫平要求，要严格落实属地管理责任，把领导责任、监管责任、主体责任、巡护责任等落实到人头、具体到地块;要统筹调度力量，积极开展火险预警监测、力量动员、物资储备和应急处置等工作。要针对翠屏山、七星山、龙头山等重点区域，细化森林防火灭火应急预案，加强实战化演练，确保一旦发生险情，能够迅速出动、科学处置，最大限度降低灾害风险和损失。特别是清明节将至，要加大宣传教育力度，倡导群众安全、文明祭祀，营造全社会保护生态环境、预防森林火灾的良好氛围。\n\n来到受疫情影响的困难群众黄洲能、田永华家中，杜紫平与他们亲切交谈，详细了解家庭有关情况，并对困难群众反映的问题，现场安排相关部门进行了协调解决。杜紫平强调，要密切关注困难群众的生产生活情况，用心用情为群众解决实际困难。要切实加强对近郊乡村发展的规划建设，加大清洁能源推广使用力度，有序推动厕所革命等基础设施改善提升，依托近郊乡村的特有优势，加快走出一条乡村旅游、助农增收的特色发展道路，不断提升人民群众生活质量和水平。\n\n市人大常委会党组副书记陈政、副市长孙小川参加督导。(记者 秦莉萍)', '2020-04-08 14:28:13', '杜紫平赴叙州区检查督导森林防火灭火工作 走访慰问困难群众', '2020-04-08 14:28:13', '宜宾日报', 1, 'http://localhost:8080/governmentfile/file/55a7cfb0-9485-4a53-9e87-8ec01e5b38eb.jpg');
 INSERT INTO `news` VALUES (12, '按照省委统一部署，4月2日至3日，省委常委、政法委书记邓勇深入宜宾市屏山县洪坪村，走访慰问受疫情影响的困难群众，送上党和政府的温暖。市委副书记黄河、省委政法委副书记曹代学参加慰问。\n\n邓勇走进贫困户张永华和吴昌洪家中，实地查看了房屋建筑、猪栏猪舍等建设情况，详细了解他们的生产生活、就医就业、子女就学等情况。得知张永华在发展养殖业，邓勇不断询问当地落实各项救助政策和脱贫帮扶措施的具体情况，并鼓励张永华继续发扬不怕苦不怕累的精神，带领全家人走上致富路。在吴昌洪家中，邓勇仔细询问其子女在外打工情况，为村中农户科学种植枇杷、产业规模发展出谋划策，并鼓励正在家中上网课的孩子认真学习。\n\n邓勇再三嘱咐和要求当地干部，一定要带着感情、带着责任，做好做实各项民生保障工作，及时掌握并解决群众在工作、生活中的实际困难，不断改善老百姓的生产生活条件，筑牢社会保障“最后一道防线”，让老百姓享受到改革发展的成果。\n\n市领导廖文彬、陈扬杰、张琦参加慰问。(记者 李美琪)', '2020-04-08 14:26:21', '邓勇走访慰问受疫情影响困难群众', '2020-04-08 14:26:21', '宜宾日报', 1, 'http://localhost:8080/governmentfile/file/af418481-6e5f-4728-a75b-7d782b9484c4.jpg');
 INSERT INTO `news` VALUES (16, '4月7日，市委召开常委会会议，研究关于纳入成渝地区双城经济圈建设规划《纲要》重点内容的报告、全市2020年重点项目和指挥部重大项目，审议加快建设现代农业“6+3”产业体系推进农业大市向农业强市跨越的意见和《宜宾市现代农业强市“6+3”特色产业振兴规划》。市委书记刘中伯主持会议。\n\n会议指出，建设成渝地区双城经济圈，不仅是四川的重大机遇，也是宜宾的重大机遇。宜宾要结合实际，抢抓重大机遇，积极融入到成渝地区双城经济圈建设中，站在大局的高度来思考和谋划宜宾未来的发展。\n\n会议强调，要站在全省发展的高度来谋划宜宾三江新区发展，把“绿色生态高质量发展”放在首位，按照建设国家级新区的标准，认真分析宜宾三江新区的特点和优势，加强与兄弟市(州)的联系沟通，积极主动、形成合力，推动宜宾三江新区积极融入成渝地区双城经济圈发展中，着力把宜宾三江新区打造为辐射川南和川滇黔结合部的绿色生态高质量发展新区。\n\n会议强调，要进一步抓好项目投资，紧紧抓住项目投资这个“牛鼻子”，充分利用好现有政策，在加快推进重大项目建设的同时，认真梳理、尽快开工一批“短平快”的基础设施项目;要进一步明确目标任务，立足当前、着眼长远、突出重点，着力抓好产业、基础设施、社会事业等各方面的项目，推动项目建设进入良性轨道;要进一步梳理高质量推进项目投资的措施，在用好用足国家政策的基础上，结合宜宾实际出台具有针对性、操作性的政策措施，增强企业发展信心;要强化考核督导、严格逗硬奖惩，建立健全常态化长效化的制度机制，强力推动工作落地落实。\n\n会议强调，宜宾是农业大市，要将农业发展与农产品精深加工结合起来，围绕现代农业“6+3”产业体系出台支持政策，推动已有项目加快建设，招引更多国内具有影响力的农产品精深加工企业来宜发展，做强做优农产品精深加工业。\n\n会议还研究了其他事项。(记者 何川)', '2020-04-08 14:38:30', '市委召开常委会会议', '2020-04-08 14:38:30', '宜宾日报', 0, 'http://localhost:8080/governmentfile/file/3bb1b65b-7cdc-4612-b1b0-6c8d1f2de3d6.jpg');
@@ -236,16 +214,6 @@ INSERT INTO `opengovtype` VALUES (2, '政府会议公开');
 INSERT INTO `opengovtype` VALUES (3, '经济建设');
 
 -- ----------------------------
--- Table structure for regionalsurvey
--- ----------------------------
-DROP TABLE IF EXISTS `regionalsurvey`;
-CREATE TABLE `regionalsurvey`  (
-  `rid` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`rid`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_mysql500_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
 -- Table structure for sys_log_login
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_log_login`;
@@ -255,7 +223,7 @@ CREATE TABLE `sys_log_login`  (
   `loginip` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `logintime` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 464 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 465 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_log_login
@@ -391,6 +359,7 @@ INSERT INTO `sys_log_login` VALUES (460, 'admin', '127.0.0.1', '2020-04-08 10:19
 INSERT INTO `sys_log_login` VALUES (461, 'admin', '127.0.0.1', '2020-04-08 13:32:49');
 INSERT INTO `sys_log_login` VALUES (462, 'admin', '127.0.0.1', '2020-04-08 17:31:23');
 INSERT INTO `sys_log_login` VALUES (463, 'admin', '127.0.0.1', '2020-04-08 17:43:44');
+INSERT INTO `sys_log_login` VALUES (464, 'admin', '127.0.0.1', '2020-04-10 19:57:14');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -549,41 +518,6 @@ INSERT INTO `sys_role_user` VALUES (4, 4, 4);
 INSERT INTO `sys_role_user` VALUES (1, 1, 10);
 INSERT INTO `sys_role_user` VALUES (2, 2, 11);
 INSERT INTO `sys_role_user` VALUES (3, 3, 13);
-
--- ----------------------------
--- Table structure for sys_user
--- ----------------------------
-DROP TABLE IF EXISTS `sys_user`;
-CREATE TABLE `sys_user`  (
-  `userid` int(11) NOT NULL AUTO_INCREMENT,
-  `loginname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `identity` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `realname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `sex` int(255) NULL DEFAULT NULL COMMENT '0女1男',
-  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `pwd` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `position` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `type` int(255) NULL DEFAULT 2 COMMENT '1，超级管理员,2，系统用户',
-  `available` int(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`userid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of sys_user
--- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 'admin', '4313341334413', '超级管理员', 1, '武汉', '134441331311', 'e10adc3949ba59abbe56e057f20f883e', 'CEO', 1, 1);
-INSERT INTO `sys_user` VALUES (3, 'zhangsan', '3413334134131131', '张三', 1, '武汉', '134131313111', 'e10adc3949ba59abbe56e057f20f883e', 'BA', 2, 1);
-INSERT INTO `sys_user` VALUES (4, 'ls', '43311341311314341', '李四', 1, '武汉', '1341314113131', 'e10adc3949ba59abbe56e057f20f883e', '扫地的', 2, 1);
-INSERT INTO `sys_user` VALUES (5, 'ww', '4313133131331312', '王五', 1, '武汉', '13413131131', 'e10adc3949ba59abbe56e057f20f883e', '领导', 2, 1);
-INSERT INTO `sys_user` VALUES (6, 'xm', '45113141331131131', '小明', 1, '武昌', '13451333131', 'e10adc3949ba59abbe56e057f20f883e', '扫地地', 2, 1);
-INSERT INTO `sys_user` VALUES (7, 'luoyi', '360421199805241424', '落亦', 1, '九江', '15207895200', 'e10adc3949ba59abbe56e057f20f883e', '学生', 2, 1);
-INSERT INTO `sys_user` VALUES (8, 'jiucheng', '360421135820654875', '旧城', 1, '九江', '13614752569', 'e10adc3949ba59abbe56e057f20f883e', '', 2, 1);
-INSERT INTO `sys_user` VALUES (9, 'sanpao', '360421198805142414', '三炮', 1, '上海', '13064154936', 'e10adc3949ba59abbe56e057f20f883e', '主席', 2, 1);
-INSERT INTO `sys_user` VALUES (10, 'jiashang', '360421199805122014', '佳上', 1, '猎户座旋臂', '15247856322', 'e10adc3949ba59abbe56e057f20f883e', '舰长', 2, 1);
-INSERT INTO `sys_user` VALUES (11, 'liyuesu', '360421158902351452', '李约素', 1, '猎户座旋臂', '15219874522', 'e10adc3949ba59abbe56e057f20f883e', '舰长', 2, 1);
-INSERT INTO `sys_user` VALUES (12, 'dansuyi', '360421185475452562', '旦素一', 0, '猎户座旋臂', '15279362588', 'e10adc3949ba59abbe56e057f20f883e', '舰长', 2, 1);
-INSERT INTO `sys_user` VALUES (13, 'ww', '2131313131', '王五', 1, '武汉', '15279230588', 'e10adc3949ba59abbe56e057f20f883e', '程序员', 2, 1);
 
 -- ----------------------------
 -- Table structure for user
